@@ -2889,11 +2889,11 @@ views:
         entity: device_tracker.javier_fuentess_iphone
         show_entity_picture: true
         color: pink
-        name: Meli
         visibility:
           - condition: user
             users:
               - 445c8a17bd4b4984bb9246895420463a
+        name: Javi
     dense_section_placement: false
     background:
       opacity: 33
@@ -3988,7 +3988,7 @@ views:
               - bubble_chips
             visual_styling_center:
               height_multiplier: 1
-              icon_size_multiplier: 1.5
+              icon_size_multiplier: 1.2
               icon_background_ratio: 1
               hide_icon_background: false
               enable_entity_colored_main_icon: false
@@ -4001,6 +4001,8 @@ views:
               - condition: user
                 users:
                   - 445c8a17bd4b4984bb9246895420463a
+            slider_fill_orientation: left
+            slider_value_position: right
           - type: custom:bubble-card
             card_type: button
             button_type: state
@@ -4283,6 +4285,8 @@ views:
               auto_play:
                 - selected
               draggable: false
+            profiles:
+              - low-performance
           - type: custom:advanced-camera-card
             cameras:
               - camera_entity: camera.garage_driveway
@@ -4358,6 +4362,8 @@ views:
               auto_play:
                 - selected
               draggable: false
+            profiles:
+              - low-performance
           - type: custom:advanced-camera-card
             cameras:
               - camera_entity: camera.patio_2
@@ -4433,6 +4439,8 @@ views:
               auto_play:
                 - selected
               draggable: false
+            profiles:
+              - low-performance
           - type: custom:advanced-camera-card
             cameras:
               - camera_entity: camera.side_driveway
@@ -4508,6 +4516,8 @@ views:
               auto_play:
                 - selected
               draggable: false
+            profiles:
+              - low-performance
           - type: custom:advanced-camera-card
             cameras:
               - camera_entity: camera.cub
@@ -4583,6 +4593,8 @@ views:
               auto_play:
                 - selected
               draggable: false
+            profiles:
+              - low-performance
           - type: custom:alarmo-card
             entity: alarm_control_panel.alarmo
             name: ''
@@ -4607,6 +4619,8 @@ views:
               buttons:
                 fullscreen:
                   permanent: true
+            profiles:
+              - low-performance
           - type: custom:bubble-card
             card_type: button
             button_type: state
@@ -4628,10 +4642,6 @@ views:
               columns: 12
               rows: 1
         column_span: 4
-      - type: grid
-        cards:
-          - type: heading
-            heading: New section
       - type: grid
         cards:
           - type: vertical-stack
@@ -5108,7 +5118,7 @@ views:
               - bubble_chips
             visual_styling_center:
               height_multiplier: 1
-              icon_size_multiplier: 1.5
+              icon_size_multiplier: 1.2
               icon_background_ratio: 1
               hide_icon_background: false
               enable_entity_colored_main_icon: false
@@ -5121,6 +5131,8 @@ views:
               - condition: user
                 users:
                   - 445c8a17bd4b4984bb9246895420463a
+            slider_fill_orientation: left
+            slider_value_position: right
           - type: custom:bubble-card
             card_type: button
             button_type: state
@@ -5291,6 +5303,105 @@ views:
         cards:
           - type: custom:navbar-card
             template: homenavbar
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#Lights'
+                show_name: true
+                name: Lights
+                icon: ''
+                show_icon: false
+                show_state: false
+                button_type: name
+                sub_button:
+                  main: []
+                  bottom: []
+                slider_fill_orientation: left
+                slider_value_position: right
+              - type: horizontal-stack
+                cards:
+                  - type: custom:bubble-card
+                    card_type: button
+                    entity: switch.master_room_lights_2
+                    show_state: true
+                  - type: custom:bubble-card
+                    card_type: button
+                    entity: light.outdoor_smart_plug
+                    show_state: true
+              - type: horizontal-stack
+                cards:
+                  - type: custom:bubble-card
+                    card_type: button
+                    entity: switch.dry_contact_relay
+                    show_state: true
+                    name: Flood Lights
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    show_state: true
+                    name: Radio
+                    tap_action:
+                      action: toggle
+                    entity: switch.mini_smart_plug_3_socket_1
+                    icon: radio
+              - type: custom:bubble-card
+                card_type: button
+                show_state: true
+                name: ''
+                tap_action:
+                  action: toggle
+                button_type: switch
+                entity: light.basement_wled
+                show_icon: true
+                use_accent_color: false
+                show_last_changed: true
+                show_last_updated: false
+                show_attribute: true
+                attribute: brightness
+              - type: horizontal-stack
+                cards:
+                  - type: custom:bubble-card
+                    card_type: button
+                    entity: light.camera1_floodlight_4
+                    show_state: true
+                    name: Front Cam Light
+                    tap_action:
+                      action: toggle
+                    button_type: switch
+                    icon: ''
+                  - type: custom:bubble-card
+                    card_type: button
+                    show_state: true
+                    name: Garage Cam Light
+                    tap_action:
+                      action: toggle
+                    icon: ''
+                    button_type: switch
+                    entity: light.camera1_floodlight
+                    use_accent_color: false
+              - type: horizontal-stack
+                cards:
+                  - type: custom:bubble-card
+                    card_type: button
+                    show_state: true
+                    name: Patio Cam Light
+                    tap_action:
+                      action: toggle
+                    button_type: switch
+                    icon: ''
+                    entity: light.camera1_floodlight_3
+                  - type: custom:bubble-card
+                    card_type: button
+                    show_state: true
+                    name: Side Cam Light
+                    tap_action:
+                      action: toggle
+                    icon: ''
+                    button_type: switch
+                    entity: light.camera1_floodlight_2
+                    use_accent_color: false
     header:
       card:
         type: markdown
@@ -5414,7 +5525,7 @@ views:
               - bubble_chips
             visual_styling_center:
               height_multiplier: 1
-              icon_size_multiplier: 1.5
+              icon_size_multiplier: 1.2
               icon_background_ratio: 1
               hide_icon_background: false
               enable_entity_colored_main_icon: false
@@ -5427,6 +5538,8 @@ views:
               - condition: user
                 users:
                   - 445c8a17bd4b4984bb9246895420463a
+            slider_fill_orientation: left
+            slider_value_position: right
           - type: custom:bubble-card
             card_type: button
             button_type: state
@@ -5521,7 +5634,6 @@ views:
               - bubble_chips
               - icon_animations
               - visual_styling_center
-              - humidity_colouring
               - text_customizer
             humidity_colouring:
               humidity_sensor: sensor.kbhm_relative_humidity
@@ -5583,6 +5695,8 @@ views:
             bubble_chips:
               justify-content: flex-start
             card_layout: normal
+            slider_fill_orientation: left
+            slider_value_position: right
           - type: custom:bubble-card
             card_type: separator
             card_layout: large
@@ -5632,12 +5746,796 @@ views:
           - condition: screen
             media_query: '(min-width: 0px) and (max-width: 767px)'
       - type: grid
-        cards: []
-        column_span: 4
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Proxmox Node PVE1
+            icon: mdi:server-minus-outline
+            modules: []
+            liquid_glass_light:
+              showBorder: false
+            sub_button:
+              main:
+                - entity: binary_sensor.node_pve1_status
+                  show_icon: false
+                  show_name: false
+                  show_state: true
+                  state_background: false
+                  show_background: false
+              bottom: []
+          - type: custom:bubble-card
+            card_type: sub-buttons
+            button_type: state
+            sub_button:
+              main:
+                - show_state: true
+                  entity: sensor.node_pve1_containers_running
+                  state_background: false
+                - show_state: true
+                  state_background: true
+                  entity: button.node_pve1_reboot
+                  name: Reboot
+                  show_name: true
+                - entity: button.node_pve1_shutdown
+                  show_state: true
+                  name: Shutdown
+                  show_name: true
+                - entity: button.node_pve1_wake_on_lan
+                  show_state: true
+                  show_name: true
+                  name: WOL
+              bottom:
+                - show_state: true
+                  entity: sensor.node_pve1_containers_running
+                  state_background: false
+                - show_state: true
+                  state_background: true
+                  entity: button.node_pve1_reboot
+                  name: Reboot
+                  show_name: true
+                - entity: button.node_pve1_shutdown
+                  show_state: true
+                  name: Shutdown
+                  show_name: true
+                - entity: button.node_pve1_wake_on_lan
+                  show_state: true
+                  show_name: true
+                  name: WOL
+            slider_fill_orientation: left
+            slider_value_position: right
+            entity: binary_sensor.node_pve1_status
+            show_attribute: false
+            attribute: device_class
+            card_layout: large-sub-buttons-grid
+            modules:
+              - liquid_glass_light
+            show_icon: false
+            show_name: false
+            rows: 0.938
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - entity: sensor.node_pve1_cpu_used
+                    show_state: true
+                    show_graph: true
+                    name: CPU
+                    showstate: true
+                    name_adaptive_color: true
+                color_thresholds:
+                  - value: 0
+                    color: '#66FF00'
+                  - color: '#78D709'
+                  - color: '#8AB011'
+                  - color: '#9C881A'
+                  - color: '#AE6122'
+                  - value: 80
+                    color: '#c0392b'
+                hours_to_show: 3
+                points_per_hour: 60
+                show:
+                  name: true
+                  legend: true
+                  icon: false
+                  fill: true
+                  labels: true
+                  name_adaptive_color: true
+                  labels_secondary: true
+                align_icon: right
+                align_state: centeleftr
+                align_name: center
+                card_mod:
+                  style: |
+                    ha-card {
+                      --ha-card-background: "rgba(0, 0, 0, 0.3)";
+                      box-shadow: none;
+                    }
+              - type: custom:mini-graph-card
+                entities:
+                  - entity: sensor.node_pve1_memory_used_percentage
+                    show_state: true
+                    show_graph: true
+                    name_adaptive_color: true
+                    name: RAM
+                    showstate: true
+                color_thresholds:
+                  - value: 0
+                    color: '#66FF00'
+                  - color: '#78D709'
+                  - color: '#8AB011'
+                  - color: '#9C881A'
+                  - color: '#AE6122'
+                  - value: 100
+                    color: '#c0392b'
+                hours_to_show: 5
+                points_per_hour: 60
+                show:
+                  name: true
+                  legend: true
+                  icon: false
+                  fill: true
+                  labels: true
+                  name_adaptive_color: true
+                  labels_secondary: true
+                align_icon: right
+                align_state: lef
+        column_span: 1
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            sub_button:
+              main:
+                - entity: binary_sensor.proxmox_status
+                  show_icon: false
+                  state_background: false
+                  show_background: false
+                  show_state: true
+              bottom: []
+            name: Proxmox Node PVE2
+            icon: mdi:server-minus-outline
+            modules: []
+            liquid_glass_light:
+              showBorder: false
+          - type: custom:bubble-card
+            card_type: sub-buttons
+            button_type: state
+            sub_button:
+              main:
+                - show_state: true
+                  entity: sensor.proxmox_containers_running
+                  state_background: false
+                - show_state: true
+                  state_background: true
+                  entity: button.node_pve2_reboot
+                  name: Reboot
+                  show_name: true
+                - entity: button.node_pve2_shutdown
+                  show_state: true
+                  name: Shutdown
+                  show_name: true
+                - entity: button.node_pve2_wake_on_lan
+                  show_state: true
+                  show_name: true
+                  name: WOL
+              bottom:
+                - show_state: true
+                  entity: sensor.proxmox_containers_running
+                  state_background: false
+                - show_state: true
+                  state_background: true
+                  entity: button.node_pve2_reboot
+                  name: Reboot
+                  show_name: true
+                - entity: button.node_pve2_shutdown
+                  show_state: true
+                  name: Shutdown
+                  show_name: true
+                - entity: button.node_pve2_wake_on_lan
+                  show_state: true
+                  show_name: true
+                  name: WOL
+            slider_fill_orientation: left
+            slider_value_position: right
+            entity: binary_sensor.proxmox_status
+            show_attribute: false
+            attribute: device_class
+            card_layout: large-sub-buttons-grid
+            modules:
+              - liquid_glass_light
+            show_icon: false
+            show_name: false
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - entity: sensor.proxmox_cpu_used
+                    show_state: true
+                    show_graph: true
+                    name: CPU
+                    showstate: true
+                    name_adaptive_color: true
+                color_thresholds:
+                  - value: 0
+                    color: '#66FF00'
+                  - color: '#78D709'
+                  - color: '#8AB011'
+                  - color: '#9C881A'
+                  - color: '#AE6122'
+                  - value: 80
+                    color: '#c0392b'
+                hours_to_show: 3
+                points_per_hour: 60
+                show:
+                  name: true
+                  legend: true
+                  icon: false
+                  fill: true
+                  labels: true
+                  name_adaptive_color: true
+                  labels_secondary: true
+                align_icon: right
+                align_state: centeleftr
+                align_name: center
+              - type: custom:mini-graph-card
+                entities:
+                  - entity: sensor.proxmox_memory_used_percentage
+                    show_state: true
+                    show_graph: true
+                    name_adaptive_color: true
+                    name: RAM
+                    showstate: true
+                color_thresholds:
+                  - value: 0
+                    color: '#66FF00'
+                  - color: '#78D709'
+                  - color: '#8AB011'
+                  - color: '#9C881A'
+                  - color: '#AE6122'
+                  - value: 100
+                    color: '#c0392b'
+                hours_to_show: 5
+                points_per_hour: 60
+                show:
+                  name: true
+                  legend: true
+                  icon: false
+                  fill: true
+                  labels: true
+                  name_adaptive_color: true
+                  labels_secondary: true
+                align_icon: right
+                align_state: lef
+            visibility:
+              - condition: state
+                entity: binary_sensor.proxmox_status
+                state: 'on'
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            sub_button:
+              main:
+                - entity: binary_sensor.node_pve3_status
+                  show_icon: false
+                  state_background: false
+                  show_background: false
+                  show_state: true
+              bottom: []
+            name: Proxmox Node PVE3
+            icon: mdi:server-minus-outline
+            modules: []
+            liquid_glass_light:
+              showBorder: false
+          - type: custom:bubble-card
+            card_type: sub-buttons
+            button_type: state
+            sub_button:
+              main:
+                - show_state: true
+                  entity: sensor.node_pve3_containers_running
+                  state_background: false
+                - show_state: true
+                  state_background: true
+                  entity: button.node_pve3_reboot
+                  name: Reboot
+                  show_name: true
+                - entity: button.node_pve3_shutdown
+                  show_state: true
+                  name: Shutdown
+                  show_name: true
+                - entity: button.node_pve3_wake_on_lan
+                  show_state: true
+                  show_name: true
+                  name: WOL
+              bottom:
+                - show_state: true
+                  entity: sensor.node_pve3_containers_running
+                  state_background: false
+                - show_state: true
+                  state_background: true
+                  entity: button.node_pve3_reboot
+                  name: Reboot
+                  show_name: true
+                - entity: button.node_pve3_shutdown
+                  show_state: true
+                  name: Shutdown
+                  show_name: true
+                - entity: button.node_pve3_wake_on_lan
+                  show_state: true
+                  show_name: true
+                  name: WOL
+            slider_fill_orientation: left
+            slider_value_position: right
+            entity: binary_sensor.node_pve3_status
+            show_attribute: false
+            attribute: device_class
+            card_layout: large-sub-buttons-grid
+            modules:
+              - liquid_glass_light
+            show_icon: false
+            show_name: false
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - entity: sensor.node_pve3_cpu_used
+                    show_state: true
+                    show_graph: true
+                    name: CPU
+                    showstate: true
+                    name_adaptive_color: true
+                color_thresholds:
+                  - value: 0
+                    color: '#66FF00'
+                  - color: '#78D709'
+                  - color: '#8AB011'
+                  - color: '#9C881A'
+                  - color: '#AE6122'
+                  - value: 80
+                    color: '#c0392b'
+                hours_to_show: 3
+                points_per_hour: 60
+                show:
+                  name: true
+                  legend: true
+                  icon: false
+                  fill: true
+                  labels: true
+                  name_adaptive_color: true
+                  labels_secondary: true
+                align_icon: right
+                align_state: centeleftr
+                align_name: center
+              - type: custom:mini-graph-card
+                entities:
+                  - entity: sensor.node_pve3_memory_used_percentage
+                    show_state: true
+                    show_graph: true
+                    name_adaptive_color: true
+                    name: RAM
+                    showstate: true
+                color_thresholds:
+                  - value: 0
+                    color: '#66FF00'
+                  - color: '#78D709'
+                  - color: '#8AB011'
+                  - color: '#9C881A'
+                  - color: '#AE6122'
+                  - value: 100
+                    color: '#c0392b'
+                hours_to_show: 5
+                points_per_hour: 60
+                show:
+                  name: true
+                  legend: true
+                  icon: false
+                  fill: true
+                  labels: true
+                  name_adaptive_color: true
+                  labels_secondary: true
+                align_icon: right
+                align_state: lef
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            sub_button:
+              main:
+                - entity: binary_sensor.node_pve4_status
+                  show_background: false
+                  show_icon: false
+                  show_state: true
+              bottom: []
+            name: Proxmox Node PVE4
+            icon: mdi:server-minus-outline
+            modules: []
+            liquid_glass_light:
+              showBorder: false
+          - type: custom:bubble-card
+            card_type: sub-buttons
+            button_type: state
+            sub_button:
+              main:
+                - show_state: true
+                  entity: sensor.node_pve4_containers_running
+                  state_background: false
+                - show_state: true
+                  state_background: true
+                  entity: button.node_pve4_reboot
+                  name: Reboot
+                  show_name: true
+                - entity: button.node_pve4_shutdown
+                  show_state: true
+                  name: Shutdown
+                  show_name: true
+                - entity: button.node_pve4_wake_on_lan
+                  show_state: true
+                  show_name: true
+                  name: WOL
+              bottom:
+                - show_state: true
+                  entity: sensor.node_pve4_containers_running
+                  state_background: false
+                - show_state: true
+                  state_background: true
+                  entity: button.node_pve4_reboot
+                  name: Reboot
+                  show_name: true
+                - entity: button.node_pve4_shutdown
+                  show_state: true
+                  name: Shutdown
+                  show_name: true
+                - entity: button.node_pve4_wake_on_lan
+                  show_state: true
+                  show_name: true
+                  name: WOL
+            slider_fill_orientation: left
+            slider_value_position: right
+            entity: binary_sensor.node_pve4_status
+            show_attribute: false
+            attribute: device_class
+            card_layout: large-sub-buttons-grid
+            modules:
+              - liquid_glass_light
+            show_icon: false
+            show_name: false
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - entity: sensor.node_pve4_cpu_used
+                    show_state: true
+                    show_graph: true
+                    name: CPU
+                    showstate: true
+                    name_adaptive_color: true
+                color_thresholds:
+                  - value: 0
+                    color: '#66FF00'
+                  - color: '#78D709'
+                  - color: '#8AB011'
+                  - color: '#9C881A'
+                  - color: '#AE6122'
+                  - value: 80
+                    color: '#c0392b'
+                hours_to_show: 3
+                points_per_hour: 60
+                show:
+                  name: true
+                  legend: true
+                  icon: false
+                  fill: true
+                  labels: true
+                  name_adaptive_color: true
+                  labels_secondary: true
+                align_icon: right
+                align_state: centeleftr
+                align_name: center
+              - type: custom:mini-graph-card
+                entities:
+                  - entity: sensor.node_pve4_memory_used_percentage
+                    show_state: true
+                    show_graph: true
+                    name_adaptive_color: true
+                    name: RAM
+                    showstate: true
+                color_thresholds:
+                  - value: 0
+                    color: '#66FF00'
+                  - color: '#78D709'
+                  - color: '#8AB011'
+                  - color: '#9C881A'
+                  - color: '#AE6122'
+                  - value: q00
+                    color: '#c0392b'
+                hours_to_show: 5
+                points_per_hour: 60
+                show:
+                  name: true
+                  legend: true
+                  icon: false
+                  fill: true
+                  labels: true
+                  name_adaptive_color: true
+                  labels_secondary: true
+                align_icon: right
+                align_state: lef
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            sub_button:
+              main:
+                - entity: binary_sensor.node_pve5_status
+                  show_background: false
+                  show_state: true
+                  show_icon: false
+              bottom: []
+            name: Proxmox Node PVE5
+            icon: mdi:server-minus-outline
+            modules: []
+            liquid_glass_light:
+              showBorder: false
+          - type: custom:bubble-card
+            card_type: sub-buttons
+            button_type: state
+            sub_button:
+              main:
+                - show_state: true
+                  entity: sensor.node_pve5_containers_running
+                  state_background: false
+                - show_state: true
+                  state_background: true
+                  entity: button.node_pve5_reboot
+                  name: Reboot
+                  show_name: true
+                - entity: button.node_pve5_shutdown
+                  show_state: true
+                  name: Shutdown
+                  show_name: true
+                - entity: button.node_pve5_wake_on_lan
+                  show_state: true
+                  show_name: true
+                  name: WOL
+              bottom:
+                - show_state: true
+                  entity: sensor.node_pve5_containers_running
+                  state_background: false
+                - show_state: true
+                  state_background: true
+                  entity: button.node_pve5_reboot
+                  name: Reboot
+                  show_name: true
+                - entity: button.node_pve5_shutdown
+                  show_state: true
+                  name: Shutdown
+                  show_name: true
+                - entity: button.node_pve5_wake_on_lan
+                  show_state: true
+                  show_name: true
+                  name: WOL
+            slider_fill_orientation: left
+            slider_value_position: right
+            entity: binary_sensor.node_pve5_status
+            show_attribute: false
+            attribute: device_class
+            card_layout: large-sub-buttons-grid
+            modules:
+              - liquid_glass_light
+            show_icon: false
+            show_name: false
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - entity: sensor.node_pve5_cpu_used
+                    show_state: true
+                    show_graph: true
+                    name: CPU
+                    showstate: true
+                    name_adaptive_color: true
+                color_thresholds:
+                  - value: 0
+                    color: '#66FF00'
+                  - color: '#78D709'
+                  - color: '#8AB011'
+                  - color: '#9C881A'
+                  - color: '#AE6122'
+                  - value: 80
+                    color: '#c0392b'
+                hours_to_show: 3
+                points_per_hour: 60
+                show:
+                  name: true
+                  legend: true
+                  icon: false
+                  fill: true
+                  labels: true
+                  name_adaptive_color: true
+                  labels_secondary: true
+                align_icon: right
+                align_state: centeleftr
+                align_name: center
+              - type: custom:mini-graph-card
+                entities:
+                  - entity: sensor.node_pve5_memory_used_percentage
+                    show_state: true
+                    show_graph: true
+                    name_adaptive_color: true
+                    name: RAM
+                    showstate: true
+                color_thresholds:
+                  - value: 0
+                    color: '#66FF00'
+                  - color: '#78D709'
+                  - color: '#8AB011'
+                  - color: '#9C881A'
+                  - color: '#AE6122'
+                  - value: 100
+                    color: '#c0392b'
+                hours_to_show: 5
+                points_per_hour: 60
+                show:
+                  name: true
+                  legend: true
+                  icon: false
+                  fill: true
+                  labels: true
+                  name_adaptive_color: true
+                  labels_secondary: true
+                align_icon: right
+                align_state: lef
+      - type: grid
+        cards:
+          - type: heading
+            heading: New section
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            sub_button:
+              main: []
+              bottom: []
+            slider_fill_orientation: left
+            slider_value_position: right
+            entity: sensor.mjr_wifi_status
+            show_state: true
+            show_attribute: true
+            modules:
+              - liquid_glass_light
       - type: grid
         cards:
           - type: custom:navbar-card
             template: homenavbar
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                button_type: name
+                hash: '#wake'
+                name: Server WOL
+                show_icon: false
+                sub_button:
+                  main: []
+                  bottom: []
+                slider_fill_orientation: left
+                slider_value_position: right
+              - type: horizontal-stack
+                cards:
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
+                    entity: switch.pve2
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
+                    entity: switch.keiflab
+              - type: horizontal-stack
+                cards:
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
+                    entity: switch.fjfs
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#Lights'
+                show_name: true
+                name: Lights
+                icon: ''
+                show_icon: false
+                show_state: false
+                button_type: name
+                sub_button:
+                  main: []
+                  bottom: []
+                slider_fill_orientation: left
+                slider_value_position: right
+              - type: horizontal-stack
+                cards:
+                  - type: custom:bubble-card
+                    card_type: button
+                    entity: switch.master_room_lights_2
+                    show_state: true
+                  - type: custom:bubble-card
+                    card_type: button
+                    entity: light.outdoor_smart_plug
+                    show_state: true
+              - type: horizontal-stack
+                cards:
+                  - type: custom:bubble-card
+                    card_type: button
+                    entity: switch.dry_contact_relay
+                    show_state: true
+                    name: Flood Lights
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    show_state: true
+                    name: Radio
+                    tap_action:
+                      action: toggle
+                    entity: switch.mini_smart_plug_3_socket_1
+                    icon: radio
+              - type: custom:bubble-card
+                card_type: button
+                show_state: true
+                name: ''
+                tap_action:
+                  action: toggle
+                button_type: switch
+                entity: light.basement_wled
+                show_icon: true
+                use_accent_color: false
+                show_last_changed: true
+                show_last_updated: false
+                show_attribute: true
+                attribute: brightness
+              - type: horizontal-stack
+                cards:
+                  - type: custom:bubble-card
+                    card_type: button
+                    entity: light.camera1_floodlight_4
+                    show_state: true
+                    name: Front Cam Light
+                    tap_action:
+                      action: toggle
+                    button_type: switch
+                    icon: ''
+                  - type: custom:bubble-card
+                    card_type: button
+                    show_state: true
+                    name: Garage Cam Light
+                    tap_action:
+                      action: toggle
+                    icon: ''
+                    button_type: switch
+                    entity: light.camera1_floodlight
+                    use_accent_color: false
+              - type: horizontal-stack
+                cards:
+                  - type: custom:bubble-card
+                    card_type: button
+                    show_state: true
+                    name: Patio Cam Light
+                    tap_action:
+                      action: toggle
+                    button_type: switch
+                    icon: ''
+                    entity: light.camera1_floodlight_3
+                  - type: custom:bubble-card
+                    card_type: button
+                    show_state: true
+                    name: Side Cam Light
+                    tap_action:
+                      action: toggle
+                    icon: ''
+                    button_type: switch
+                    entity: light.camera1_floodlight_2
+                    use_accent_color: false
+        column_span: 4
     header:
       card:
         type: markdown
@@ -5737,6 +6635,8 @@ views:
             - media_content_type: app
               media_content_id: media-source://image_upload
     cards: []
+    visible:
+      - user: e0e65d47982e457eb3c018e971260f2b
   - type: panel
     path: frigate
     title: Frigate
