@@ -837,7 +837,7 @@ views:
                 min_value: 30
                 double_tap_action:
                   action: navigate
-                  navigation_path: '#livingroom'
+                  navigation_path: '#basement'
                 button_action:
                   tap_action:
                     action: navigate
@@ -879,7 +879,7 @@ views:
                 min_value: 30
                 double_tap_action:
                   action: navigate
-                  navigation_path: '#livingroom'
+                  navigation_path: '#office'
                 button_action:
                   tap_action:
                     action: navigate
@@ -1008,7 +1008,7 @@ views:
           - type: markdown
             content: |-
               # Hey, {{ user }}!
-               At {{ states('device_tracker.iphone17pro_meli') | title if user == 'Meli' else states('device_tracker.javier_fuentess_iphone') | title }}
+               At {{ states('device_tracker.iphone17pro_meli') | title if user == 'Meli' else states('device_tracker.javier_fuentes_iphone') | title }}
             grid_options:
               columns: 4
               rows: 1
@@ -1452,7 +1452,7 @@ views:
                 min_value: 30
                 double_tap_action:
                   action: navigate
-                  navigation_path: '#livingroom'
+                  navigation_path: '#basement'
                 button_action:
                   tap_action:
                     action: navigate
@@ -1484,7 +1484,7 @@ views:
                 min_value: 30
                 double_tap_action:
                   action: navigate
-                  navigation_path: '#livingroom'
+                  navigation_path: '#office'
                 button_action:
                   tap_action:
                     action: navigate
@@ -1515,7 +1515,6 @@ views:
             visibility:
               - condition: user
                 users:
-                  - 445c8a17bd4b4984bb9246895420463a
                   - 445c8a17bd4b4984bb9246895420463a
                   - 432e5ee41c2b46d29274b61978d9ae87
           - type: custom:bubble-card
@@ -2227,7 +2226,7 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 show_state: true
-                name: Paito Camera
+                name: Patio Camera
                 tap_action:
                   action: toggle
                 icon: ''
@@ -3306,7 +3305,7 @@ views:
                     - show_state: true
                       entity: sensor.node_pve1_containers_running
                       state_background: false
-                      name: Cointainers
+                      name: Containers
                       tap_action:
                         action: navigate
                         navigation_path: '#pve1'
@@ -3490,7 +3489,7 @@ views:
                     - show_state: true
                       entity: sensor.node_pve4_containers_running
                       state_background: false
-                      name: Cointainers
+                      name: Containers
                       tap_action:
                         action: navigate
                         navigation_path: '#pve4'
@@ -3674,7 +3673,7 @@ views:
                     - show_state: true
                       entity: sensor.node_pve5_containers_running
                       state_background: false
-                      name: Cointainers
+                      name: Containers
                       tap_action:
                         action: navigate
                         navigation_path: '#pve1'
@@ -4184,7 +4183,7 @@ views:
             cards:
               - type: custom:bubble-card
                 card_type: separator
-                name: Doccker-Tailscale (LXC 104)
+                name: Docker-Tailscale (LXC 104)
                 icon: mdi:server-minus-outline
                 modules: []
                 liquid_glass_light:
@@ -4357,6 +4356,7 @@ views:
                   showBorder: false
                 sub_button:
                   main:
+                # TODO: verify — currently copied from the LXC 104 (Tailscale) card above; should likely be Adguard 105's own status entity
                     - entity: binary_sensor.lxc_docker_104_status
                       show_icon: false
                       show_name: false
@@ -4856,6 +4856,7 @@ views:
                   showBorder: false
                 sub_button:
                   main:
+                # TODO: verify — currently copied from the LXC 115 (MySpeed) card; should likely be this Frigate LXC's own status entity
                     - entity: binary_sensor.lxc_myspeed_115_status
                       show_icon: false
                       show_name: false
@@ -5044,7 +5045,7 @@ views:
                   bottom:
                     - show_state: true
                       state_background: false
-                      name: Cointainers
+                      name: Containers
                       tap_action:
                         action: navigate
                         navigation_path: '#pve1'
@@ -5067,6 +5068,7 @@ views:
                       name: WOL
                 slider_fill_orientation: left
                 slider_value_position: right
+                # TODO: verify — currently reuses PVE1's status entity; this OMV instance (806) likely has (or needs) its own status/online entity
                 entity: binary_sensor.node_pve1_status
                 show_attribute: false
                 attribute: device_class
@@ -5364,6 +5366,7 @@ views:
                       name: WOL
                 slider_fill_orientation: left
                 slider_value_position: right
+                # TODO: verify — currently reuses PVE1's status entity; this OMV instance (Keiflab) likely has (or needs) its own status/online entity
                 entity: binary_sensor.node_pve1_status
                 show_attribute: false
                 attribute: device_class
@@ -6494,7 +6497,7 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 show_state: true
-                name: Paito Camera
+                name: Patio Camera
                 tap_action:
                   action: toggle
                 icon: ''
@@ -7052,6 +7055,9 @@ views:
             card_type: button
             entity: sensor.radarr_queue
             button_type: state
+            tap_action:
+              action: navigate
+              navigation_path: '#Radarr'
         column_span: 4
       - type: grid
         cards:
@@ -7258,6 +7264,31 @@ views:
             cards:
               - type: iframe
                 url: https://sonarr.fjlab.fyi
+                aspect_ratio: 50%
+            scrolling_effect: false
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: '#Radarr'
+            show_name: true
+            name: Radarr - Request Movies
+            icon: mdi:movie-open
+            show_icon: true
+            show_state: true
+            button_type: name
+            sub_button:
+              main: []
+              bottom: []
+            slider_fill_orientation: left
+            slider_value_position: right
+            styles: ''
+            bg_opacity: '25'
+            show_header: true
+            hide_backdrop: true
+            margin_top_mobile: 0px
+            show_attribute: false
+            cards:
+              - type: iframe
+                url: https://radarr.fjlab.fyi
                 aspect_ratio: 50%
             scrolling_effect: false
     header:
